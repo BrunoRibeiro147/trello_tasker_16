@@ -1,6 +1,6 @@
 <section class="card-info">
 	<header>
-		<img src="<%= @card.image %>" alt="">
+		<img src={@card.image} alt="">
 		<div>
 			<strong><%= @card.name %></strong>
 			<p><%= @card.description %></p>
@@ -10,8 +10,8 @@
 	<ul>
 		<li>
 			<span>
-				<i
-					class="fa fa-clock-o <%= (Date.compare(Date.utc_today(), @card.delivery_date) && !@card.completed) && "is-late" || "" %> "></i>
+				<i class={"fa fa-clock-o" <> (Date.compare(Date.utc_today(), @card.delivery_date) && !@card.completed) &&
+					"is-late" || ""}></i>
 				<%= @card.delivery_date %>
 			</span>
 		</li>

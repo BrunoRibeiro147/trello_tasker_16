@@ -1,89 +1,360 @@
-/* This file is for your main application CSS */
-@import "./phoenix.css";
-
-/* Alerts and form errors used by phx.new */
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-}
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-}
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-}
-.alert p {
-  margin-bottom: 0;
-}
-.alert:empty {
-  display: none;
-}
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-  margin: -1rem 0 2rem;
+/* This file is for your main application css. */
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	box-sizing: border-box;
 }
 
-/* LiveView specific classes for your customization */
+body {
+	background-color: #fff;
+}
+
+body,
+input,
+button {
+	font: 16px Poppins, sans-serif;
+}
+
+button {
+	cursor: pointer;
+}
+
+#root {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+#root:before {
+	content: '';
+	position: absolute;
+	width: 1000px;
+	height: 1000px;
+	border-radius: 50%;
+	background: linear-gradient(-45deg, #ffe9ce, #fff);
+	top: -10%;
+	right: 48%;
+	z-index: -1;
+	transform: translateY(-50%);
+}
+
+header#main {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header#main strong {
+	color: #4e51df;
+}
+
+header#main a {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #4e51df;
+	transition: color 0.4s;
+}
+
+header#main a:hover {
+	color: #1e21a9;
+}
+
+header#main a i {
+	margin-right: 4px;
+}
+
+section.container {
+	max-width: 650px;
+}
+
+section.container h1 {
+	font-size: 48px;
+	color: #24252a;
+	line-height: 70px;
+	margin-top: 80px;
+}
+
+form#create-card {
+	margin-top: 40px;
+	max-width: 700px;
+	display: flex;
+}
+
+form#create-card input {
+	flex: 1;
+	height: 40px;
+	padding: 0 24px;
+	border-radius: 15px 0 0 15px;
+	color: #24252a;
+	border: 2px solid #4e51df;
+	border-right: 0;
+}
+
+form#create-card input.error {
+	border-color: #ff92a4;
+}
+
+form#create-card input::placeholder {
+	color: #a0a2ad;
+}
+
+form#create-card button {
+	width: 210px;
+	height: 40px;
+	background: #4e51df;
+	color: #fff;
+	border: 0;
+	border-radius: 0px 15px 15px 0;
+	font-weight: bold;
+	transition: background-color 0.3s;
+}
+
+form#create-card button:hover {
+	background-color: #6466e3;
+}
+
+.cards {
+	margin-top: 40px;
+	max-width: 900px;
+}
+
+.cards a {
+	background: #fcfcfc;
+	border: 1px solid #4e51df;
+	width: 100%;
+	border-radius: 15px;
+	padding: 12px;
+	display: block;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	transition: transform 0.5s;
+}
+
+.cards a:hover {
+	background: white;
+	transform: translateX(10px);
+}
+
+.cards a+a {
+	margin-top: 16px;
+}
+
+.cards a img {
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+}
+
+.cards a div {
+	margin-left: 16px;
+}
+
+.cards a div strong {
+	font-size: 20px;
+	color: #4e51df;
+}
+
+.cards a div p {
+	font-size: 16px;
+	color: #24252a;
+}
+
+.cards a i {
+	size: 70px;
+	color: #ff92a4;
+	margin-left: auto;
+}
+
+section.card-info {
+	margin-top: 40px;
+}
+
+section.card-info header {
+	display: flex;
+	align-items: center;
+}
+
+section.card-info header img {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+}
+
+section.card-info header div {
+	margin-left: 24px;
+}
+
+section.card-info header div strong {
+	font-size: 36px;
+	color: #4e51df;
+}
+
+section.card-info header div p {
+	font-size: 18px;
+	color: #24252a;
+	margin-top: 24px;
+}
+
+section.card-info ul {
+	display: flex;
+	list-style: none;
+	margin-top: 40px;
+}
+
+section.card-info ul li+li {
+	margin-left: 40px;
+}
+
+section.card-info ul li span {
+	display: block;
+	margin-top: 4px;
+	color: #24252a;
+}
+
+section.card-info ul li span i {
+	font-size: 20px;
+	color: #ff92a4;
+}
+
+section.card-info ul li span i.is-late {
+	color: #4e51df;
+}
+
+.comments {
+	margin-top: 80px;
+}
+
+.comments a {
+	background: #fcfcfc;
+	border: 1px solid #4e51df;
+	width: 100%;
+	border-radius: 15px;
+	padding: 12px;
+	display: block;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	transition: transform 0.5s;
+}
+
+.comments a:hover {
+	background: white;
+	transform: translateX(10px);
+}
+
+.comments a+a {
+	margin-top: 16px;
+}
+
+.comments a div {
+	margin-left: 16px;
+}
+
+.comments a div strong {
+	font-size: 20px;
+	color: #4e51df;
+}
+
+.comments a div p {
+	font-size: 16px;
+	color: #24252a;
+}
+
+.comments a i {
+	size: 70px;
+	color: #ff92a4;
+	margin-left: auto;
+}
+
+/* LiveView specific classes for your customizations */
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {
-  display: none;
+	display: none;
 }
 
 .phx-click-loading {
-  opacity: 0.5;
-  transition: opacity 1s ease-out;
+	opacity: 0.5;
+	transition: opacity 1s ease-out;
 }
 
-.phx-disconnected{
-  cursor: wait;
+.phx-disconnected {
+	cursor: wait;
 }
-.phx-disconnected *{
-  pointer-events: none;
+
+.phx-disconnected * {
+	pointer-events: none;
 }
 
 .phx-modal {
-  opacity: 1!important;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+	opacity: 1 !important;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: black;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .phx-modal-content {
-  background-color: #fefefe;
-  margin: 15vh auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
 }
 
 .phx-modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
 }
 
 .phx-modal-close:hover,
 .phx-modal-close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* Alerts and form errors */
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+.alert-info {
+	color: #4e51df;
+}
+
+.alert-warning {
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
+}
+
+.alert-danger {
+	color: #ff92a4;
+}
+
+.alert p {
+	margin-bottom: 0;
+}
+
+.alert:empty {
+	display: none;
+}
+
+.invalid-feedback {
+	color: #ff92a4;
+	position: absolute;
+	margin-top: 40px;
 }

@@ -15,7 +15,9 @@ defmodule TrelloTasker16.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TrelloTasker16.PubSub},
       # Start the Endpoint (http/https)
-      TrelloTasker16Web.Endpoint
+      TrelloTasker16Web.Endpoint,
+      TrelloTasker16.Shared.Providers.CacheProvider.CardCache
+
       # Start a worker by calling: TrelloTasker16.Worker.start_link(arg)
       # {TrelloTasker16.Worker, arg}
     ]

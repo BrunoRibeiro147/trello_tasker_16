@@ -1,3 +1,3 @@
-defmodule TrelloTaskerWeb16.CardView do
-  use TrelloTaskerWeb16, :view
+defmodule TrelloTasker16Web.CardView do
+  use TrelloTasker16Web, :view
 end
