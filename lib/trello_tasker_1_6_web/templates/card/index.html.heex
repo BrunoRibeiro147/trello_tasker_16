@@ -1,0 +1,28 @@
+<section class="container">
+	<h1>Monitore os seus cards do Trello</h1>
+
+	<%= f = form_for @changeset, "#", id: "create-card", phx_submit: "create" %>
+	<%= text_input f, :path, placeholder: "Informe o número do Card", class: f.errors && f.errors[:path] && "error"%>
+	<%= error_tag f, :path %>
+	<%= submit "Pesquisar", phx_disable_with: "Pesquisando..." %>
+	</form>
+
+	<div class="cards">
+		<%= for card <- @cards do %>
+		<%= live_redirect to: Routes.card_info_path(@socket, :index, card.card_id) do %>
+		<img src="<%= card.image  %>" alt="">
+
+		<div>
+			<strong><%= card.name  %></strong>
+			<p>
+				<%= card.description  %>
+			</p>
+		</div>
+
+		<i class="fa fa-caret-right"></i>
+		<% end %>
+		<% end %>
+	</div>
+
+
+</section>

@@ -1,0 +1,40 @@
+<section class="card-info">
+	<header>
+		<img src="<%= @card.image %>" alt="">
+		<div>
+			<strong><%= @card.name %></strong>
+			<p><%= @card.description %></p>
+		</div>
+	</header>
+
+	<ul>
+		<li>
+			<span>
+				<i
+					class="fa fa-clock-o <%= (Date.compare(Date.utc_today(), @card.delivery_date) && !@card.completed) && "is-late" || "" %> "></i>
+				<%= @card.delivery_date %>
+			</span>
+		</li>
+		<li>
+			<span>
+				<i class="fa fa-check-circle-o"></i>
+				<%= @card.completed && "Done" || "In Progress" %>
+			</span>
+		</li>
+	</ul>
+</section>
+
+<div class="comments">
+	<%= for comment <- @comments do %>
+	<a href="">
+		<div>
+			<strong> "<%= comment.user %>" </strong>
+			<p>
+				"<%= comment.text %>"
+			</p>
+		</div>
+
+		<i class="fa fa-caret-right"></i>
+	</a>
+	<% end %>
+</div>
